@@ -1,0 +1,259 @@
+
+.trip-cntr{
+    width: 90%;
+    height: 100vh;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.page-content{
+   /* width: 1250px;*/
+    width: 100%;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    padding: 5px;
+    align-items: center;
+    justify-content: center;
+ 
+     
+ }
+ .promts-body{
+    width: 85%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+ }
+.div-loc-picker{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color:  rgba(0,0,0,0.5);
+    z-index: 1000;
+}
+.loc-picker{
+    width: 80%;
+    height: 70%;
+    margin: 5% auto;
+    background-color: white;
+    padding: 10px;
+    position: relative;
+    font-size: var(--font-size-medium);
+}
+
+.map-cntr{
+    height: 90%;
+    width: 100% ;
+    margin-top: 10px;
+}
+.route-div{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 15px 0;
+    position: relative; 
+    width: 100%;
+}
+.view-map{
+    height: 450px;
+    width: 90%;
+    display: block;
+    position: absolute;
+    top: 100px;
+}
+.select-val{
+    width: 100%;
+}
+
+/* */
+.prompts-module{
+    /* position: absolute;
+    top: 150px; */
+    padding: 0 4px;
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: var(--font-size-medium);
+    
+}
+.prompts-title{
+    width: 90%;
+    height: var(--search-header);
+    text-align: center;
+    font-size: var(--font-size-large);
+    background: var(--color-input-group-border);
+    padding: 12px;
+    color: var(--color-white);
+}
+
+.prompts-footer{
+    width: 82%;
+    height: var(--search-footer-height);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: var(--font-size-large);
+    
+}
+.prompts-footer button {
+    margin-right: 4px;
+    width: 250px;
+    height: 50px;
+    border-radius: 10px;
+    border-color: var(--color-input-border);
+}
+.prompts-footer button:hover{
+    background-color: var(--color-primary);
+    border-color: var(--color-input-border-focus);
+    cursor: pointer;
+}
+.form-error{
+    font-size: var(--font-size-small);
+    color: var(--color-red);
+    width: 100%;
+    text-align: right;
+    padding: 5px 25px 0 0;
+    display: block;
+}
+.form-error-hdr{
+    font-size: var(--font-size-small);
+    color: var(--color-red);
+    width: 100%;
+    text-align: center;
+    padding: 0 10px;
+    
+}
+.field-input{
+    display: flex;
+    flex-direction: column;
+    padding: 8px;
+    width:100%;
+    margin-bottom: 10px;
+   
+}
+.field-input-group{
+    display: flex;
+    flex-direction: row;
+}
+.btn-show-map{
+    width: 50px;
+    border-color: var(--color-input-border);
+}
+.btn-show-map:hover{
+    background-color: var(--color-primary);
+    border-color: var(--color-input-border-focus);
+    cursor: pointer; 
+}
+.add-row, .add-row-last, .add-row-span{
+    width: 100%;
+    /* display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    position: relative; */
+    
+}
+.add-row label, .add-row-span  label{
+    text-align: left;
+    min-width: 120px;
+    height: 30px;
+    padding-top: 2px;
+    margin-right: 6px;
+    
+}
+.add-row-last label{
+    text-align: left;
+    min-width: 120px;
+    height: 30px;
+    margin-right: 6px;
+    margin-top: -30px;
+    
+}
+.add-row input{
+    min-width: 100%;
+    height: 35px;
+    border: 1px solid var(--color-input-border);
+    outline: none;
+    margin-bottom: 15px
+}
+.add-row textarea{
+    min-width: 100%;
+    height: 13rem;
+    border: 1px solid var(--color-input-border);
+    outline: none;
+    margin-bottom: 15px
+}
+.add-row input:focus, .add-row textarea:focus, .add-row-last input:focus{
+    border: 2px solid var(--color-input-border-focus) !important;
+}
+.add-row.validation input, .add-row.validation input:focus, .add-row-last.validation input:focus, .add-row-span.validation input:focus{
+    border: 2px solid var(--color-red) !important;
+}
+
+
+/** media queries ***/
+/** for tablet and small labtops ***/
+@media (min-width: 468px) and (max-width:  768px) {
+    .prompts-module{
+        width: 100%;
+        padding:  0 40px;
+    }
+    .prompts-module .col-1-2{
+        margin: 0;
+        padding: 0;
+    }
+    .add-row input{
+        width: 100%;
+    }
+    .add-row-span input{
+        width: 90%;
+    }
+    .add-row label, .add-row-span label{
+        text-align: left;
+    }
+}
+/** for medium mobile ***/
+@media (max-width: 468px) {
+    .prompts-module{
+        width: 100%;
+        padding:  0 40px;
+        font-size: var(--font-size-small);
+    }
+    .prompts-title{
+        font-size: var(--font-size-medium);
+        width: 80%;
+    }
+    .prompts-module .col-1-2{
+        margin: 0;
+        padding: 0;
+    }
+    .prompts-footer button {
+        width: 60px;
+    }  
+    .page-body{
+        flex-direction: column;
+    }
+    .add-row input{
+        width: 100%;
+    }
+    .add-row-span input{
+        width: 90%;
+    }
+    .add-row label, .add-row-span label{
+        text-align: left;
+    }  
+}
+/** for tablet and small labtops ***/
+@media (min-width: 768px) and (max-width: 1147px) {
+    .add-row label, .add-row-span label{
+        text-align: left;
+    }
+}
