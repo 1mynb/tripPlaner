@@ -80,8 +80,12 @@ def get_route2(pickup_lat, pickup_log, dropoff_lat, dropoff_log):
     payload = {
         "coordinates": [[pickup_log, pickup_lat],  # Convert to (lon, lat)
                         [dropoff_log, dropoff_lat]],
-        "radiuses": [3000, 3000]  # Increase search radius
+        "radiuses": [3000, 3000],  # Increase search radius
+        # "options": {  
+        #     "steps": True  # Enable detailed steps
+        # }
     }
+    
 
     headers = {
         "Authorization": ORS_API_KEY,

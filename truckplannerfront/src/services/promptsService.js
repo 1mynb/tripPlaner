@@ -1,7 +1,7 @@
 import { axiosInstance } from "../utils/axiosInstance"
 
 export default function getTrips(id){
-    console.log('trip id:', id)
+    //console.log('trip id:', id)
     return axiosInstance.get('/trips/' + id )
         .then(response => {
             return {
@@ -20,7 +20,7 @@ export default function getTrips(id){
 
 
 export  function addTrips(tp){
-    console.log('trips:', tp)
+   // console.log('trips:', tp)
     return axiosInstance.post('/trips',{
         current_location: tp.current_location ,
         pickup_location: tp.pickup_location,

@@ -1,12 +1,13 @@
 
 .trip-cntr{
-    width: 90%;
+    /* width: 90%;
     height: 100vh;
     margin: auto;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: center; */
+    position: relative;
 }
 .page-content{
    /* width: 1250px;*/
@@ -81,6 +82,7 @@
     align-items: center;
     justify-content: center;
     font-size: var(--font-size-medium);
+    margin: 30px 0;
     
 }
 .prompts-title{
@@ -197,6 +199,37 @@
 .add-row.validation input, .add-row.validation input:focus, .add-row-last.validation input:focus, .add-row-span.validation input:focus{
     border: 2px solid var(--color-red) !important;
 }
+.log-sheet-div{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 70px;
+    position: absolute; 
+    top: 1350px;
+    width: 100%;
+}
+.log-sheet{
+    padding: 50px;
+    height: 300px;
+}
+.carousel-buttons{
+    padding: 10px;
+}
+.prevNext{
+    margin-right: 4px;
+    width: 90px;
+    height: 40px;
+    border-radius: 10px;
+    border-color: var(--color-input-border);
+    margin: 4px;
+}
+.prevNext:hover{
+    cursor: pointer;
+    background-color: var(--color-primary);
+    border-color: var(--color-input-border-focus);
+}
+
 
 
 /** media queries ***/

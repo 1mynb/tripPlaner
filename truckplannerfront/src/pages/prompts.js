@@ -17,7 +17,7 @@ function Prompts ({ setTripId, mapMasterErrors }){
     const [searchResultsCurrent, setSearchResultsCurrent] = useState([]);
     const [searchResultsPickup, setSearchResultsPickup] = useState([]);
     const [searchResultsDropOff, setSearchResultsDropOff] = useState([]);
-    const [searchInput, setSearchInput] = useState("");
+    //const [searchInput, setSearchInput] = useState("");
 
 
     const handlePromptsChange = (field, location) => {
@@ -78,7 +78,7 @@ function Prompts ({ setTripId, mapMasterErrors }){
             dropoff_location_longitude: locations.dropoff.lon,
             current_cycle_used
         }
-        console.log('master data:', masterData)
+       // console.log('master data:', masterData)
 
         const isValid = await validateForm(masterData)
         if(isValid){
@@ -108,7 +108,7 @@ function Prompts ({ setTripId, mapMasterErrors }){
         const formattedSearch = newVal.replace(/\s+/g, "+"); // ✅ Prevent TypeError
             
         
-        setSearchInput(newVal);
+        //setSearchInput(newVal);
         if (!newVal) {
           setSearchResultsCurrent([]);
           return;
@@ -121,14 +121,14 @@ function Prompts ({ setTripId, mapMasterErrors }){
         );
         const data = await response.json();
 
-        console.log('data:', data)
+        //console.log('data:', data)
     
         const options = data.map((place) => ({
           label: typeof place.display_name === 'string' ? place.display_name : '',
           value: { lat: parseFloat(place.lat), lon: parseFloat(place.lon) },
         }));
     
-        console.log('options:', options)
+        //console.log('options:', options)
         setSearchResultsCurrent(options);
     };
 
@@ -142,7 +142,7 @@ function Prompts ({ setTripId, mapMasterErrors }){
         const formattedSearch = newVal.replace(/\s+/g, "+"); // ✅ Prevent TypeError
             
         
-        setSearchInput(newVal);
+        //setSearchInput(newVal);
         if (!newVal) {
           setSearchResultsPickup([]);
           return;
@@ -155,14 +155,14 @@ function Prompts ({ setTripId, mapMasterErrors }){
         );
         const data = await response.json();
 
-        console.log('data:', data)
+        //console.log('data:', data)
     
         const options = data.map((place) => ({
           label: typeof place.display_name === 'string' ? place.display_name : '',
           value: { lat: parseFloat(place.lat), lon: parseFloat(place.lon) },
         }));
     
-        console.log('options:', options)
+        //console.log('options:', options)
         setSearchResultsPickup(options);
     };
 
@@ -176,7 +176,7 @@ function Prompts ({ setTripId, mapMasterErrors }){
         const formattedSearch = newVal.replace(/\s+/g, "+"); // ✅ Prevent TypeError
             
         
-        setSearchInput(newVal);
+        //setSearchInput(newVal);
         if (!newVal) {
           setSearchResultsDropOff([]);
           return;
@@ -201,8 +201,8 @@ function Prompts ({ setTripId, mapMasterErrors }){
 
     // Handle selecting from the search bar
     const handleSelectSearch = (selectedOption, locType) => {
-        console.log(selectedOption)
-        console.log(locType)
+       // console.log(selectedOption)
+       // console.log(locType)
         if (selectedOption) {
             const { lat, lon } = selectedOption.value;
             const location = {lat, lon, address: selectedOption.label}
@@ -219,11 +219,12 @@ function Prompts ({ setTripId, mapMasterErrors }){
         };
     };
       
-    const debouncedSearchCurrent = debounce((value,actionMeta)=>{setSearchInput(value);handleSearchCurrent(value, actionMeta)}, 500);
-    const debouncedSearchPickup = debounce((value,actionMeta)=>{setSearchInput(value);handleSearchPickup(value, actionMeta)}, 500);
-    const debouncedSearchDropoff = debounce((value,actionMeta)=>{setSearchInput(value);handleSearchDropOff(value, actionMeta)}, 500);
+    const debouncedSearchCurrent = debounce((value,actionMeta)=>{handleSearchCurrent(value, actionMeta)}, 500);
+    const debouncedSearchPickup = debounce((value,actionMeta)=>{handleSearchPickup(value, actionMeta)}, 500);
+    const debouncedSearchDropoff = debounce((value,actionMeta)=>{handleSearchDropOff(value, actionMeta)}, 500);
 
-    console.log('search input:', searchInput)
+    //console.log('search input:', searchInput)
+
     return (
             <div className="page-content">
                     <div className="prompts-module">
