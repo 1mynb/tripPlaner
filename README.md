@@ -1,8 +1,10 @@
 # Trip Planner
 
+
 ## Description 
-  
+<div style="text-align: justify;"> 
 This project is developed to help drivers plan their trip. They provide their current location, pickup location , drop location and current cycle hours used by the drivers. Then the system shows the appropriate routes and other detail if the trip is valid as per HOS of Federal Motor Carrier Safetey Administration(FMCSA). It also drows the log sheet automatically based on the inputs provided by the driver. The backend part of the project is developed by using Django Framework and its front end part is developed by using React Framework. Its database is Designed by Mysql.
+</div>
 
 ---
 ## Requirements
@@ -46,13 +48,13 @@ This project is developed to help drivers plan their trip. They provide their cu
 
 ## Examples
 <p align="center">
-    <img src="https://github.com/BeniyamL/tripPlanner/blob/main/prompts.PNG">
+    <img src="https://github.com/1mynb/tripPlanner/blob/main/prompts.PNG">
 </p>
 <p align="center">
-    <img src="https://github.com/BeniyamL/Maze/blob/main/route.PNG">
+    <img src="https://github.com/1mynb/tripPlanner/blob/main/route.PNG">
 </p>
 <p align="center">
-    <img src="https://github.com/BeniyamL/Maze/blob/main/log-sheet.PNG">
+    <img src="https://github.com/1mynb/tripPlanner/blob/main/log-sheet.PNG">
 </p>
 
 ---
