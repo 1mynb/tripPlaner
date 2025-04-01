@@ -48,13 +48,13 @@ This project is developed to help drivers plan their trip. They provide their cu
 
 ## Examples
 <p align="center">
-    <img src="https://github.com/1mynb/tripPlanner/blob/main/prompts.PNG">
+    <img src="https://github.com/1mynb/tripPlaner/blob/main/prompts.PNG">
 </p>
 <p align="center">
-    <img src="https://github.com/1mynb/tripPlanner/blob/main/route.PNG">
+    <img src="https://github.com/1mynb/tripPlaner/blob/main/route.PNG">
 </p>
 <p align="center">
-    <img src="https://github.com/1mynb/tripPlanner/blob/main/log-sheet.PNG">
+    <img src="https://github.com/1mynb/tripPlaner/blob/main/log-sheet.PNG">
 </p>
 
 ---
@@ -80,5 +80,5 @@ This project is developed to help drivers plan their trip. They provide their cu
    * yup: 1.6.1 
 ---
 
-## Authors
-* **Beniyam Legesse** - [beniyaml] from github account  https://github.com/beniyaml
+## Author
+* **Beniyam Legesse** - https://github.com/beniyaml
