@@ -2,7 +2,7 @@
 
 ## Description 
   
-This project is developed to help drivers plan their trip. They provide their current location, pickup location , drop location and current cycle hours used by the drivers. Then the system shows the appropriate routes and other detail if the trip is valid as per HRS of FMRS. It also drows the log sheet automatically based on the inputs provided by the driver. The project is developed in Django and react.
+This project is developed to help drivers plan their trip. They provide their current location, pickup location , drop location and current cycle hours used by the drivers. Then the system shows the appropriate routes and other detail if the trip is valid as per HOS of Federal Motor Carrier Safetey Administration(FMCSA). It also drows the log sheet automatically based on the inputs provided by the driver. The backend part of the project is developed by using Django Framework and its front end part is developed by using React Framework. Its database is Designed by Mysql.
 
 ---
 ## Requirements
@@ -46,13 +46,13 @@ This project is developed to help drivers plan their trip. They provide their cu
 
 ## Examples
 <p align="center">
-    <img src="https://github.com/BeniyamL/tripPlanner/blob/master/images/prompts.PNG">
+    <img src="https://github.com/BeniyamL/tripPlanner/blob/main/prompts.PNG">
 </p>
 <p align="center">
-    <img src="https://github.com/BeniyamL/Maze/blob/master/images/route.PNG">
+    <img src="https://github.com/BeniyamL/Maze/blob/main/route.PNG">
 </p>
 <p align="center">
-    <img src="https://github.com/BeniyamL/Maze/blob/master/images/log-sheet.PNG">
+    <img src="https://github.com/BeniyamL/Maze/blob/main/log-sheet.PNG">
 </p>
 
 ---
@@ -76,9 +76,6 @@ This project is developed to help drivers plan their trip. They provide their cu
    * react-router-dom: 7.4.1
    * react-select: 5.10.1,
    * yup: 1.6.1 
-   * Then click Plan Trip button to see the out puts
-   * The system then displays the output
-   
 ---
 
 ## Authors
