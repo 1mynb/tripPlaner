@@ -7,9 +7,9 @@
     font-size: var(--font-size-medium);
 
     /* newly added */
-    position: absolute;
+    /* position: absolute;
     top: 1000px;
-    width: 100%;
+    width: 100%; */
 }
 .footer-logo{
     width: 80px;

@@ -1,12 +1,5 @@
-
+/** css for the prompts page **/
 .trip-cntr{
-    /* width: 90%;
-    height: 100vh;
-    margin: auto;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center; */
     position: relative;
 }
 .page-content{
@@ -18,61 +11,9 @@
     padding: 5px;
     align-items: center;
     justify-content: center;
- 
-     
+  
  }
- .promts-body{
-    width: 85%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
- }
-.div-loc-picker{
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    background-color:  rgba(0,0,0,0.5);
-    z-index: 1000;
-}
-.loc-picker{
-    width: 80%;
-    height: 70%;
-    margin: 5% auto;
-    background-color: white;
-    padding: 10px;
-    position: relative;
-    font-size: var(--font-size-medium);
-}
-
-.map-cntr{
-    height: 90%;
-    width: 100% ;
-    margin-top: 10px;
-}
-.route-div{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    margin: 15px 0;
-    position: relative; 
-    width: 100%;
-}
-.view-map{
-    height: 450px;
-    width: 90%;
-    display: block;
-    position: absolute;
-    top: 100px;
-}
-.select-val{
-    width: 100%;
-}
-
-/* */
-.prompts-module{
+ .prompts-module{
     /* position: absolute;
     top: 150px; */
     padding: 0 4px;
@@ -82,7 +23,7 @@
     align-items: center;
     justify-content: center;
     font-size: var(--font-size-medium);
-    margin: 30px 0;
+    margin: 30px 0 60px 0;
     
 }
 .prompts-title{
@@ -116,6 +57,47 @@
     border-color: var(--color-input-border-focus);
     cursor: pointer;
 }
+.promts-body{
+    width: 85%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+ }
+.div-loc-picker{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color:  rgba(0,0,0,0.5);
+    z-index: 1000;
+}
+.loc-picker{
+    width: 80%;
+    height: 70%;
+    margin: 5% auto;
+    background-color: white;
+    padding: 10px;
+    position: relative;
+    font-size: var(--font-size-medium);
+}
+
+.map-cntr{
+    height: 90%;
+    width: 100% ;
+    margin-top: 10px;
+}
+.clearfix::after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.select-val{
+    width: 100%;
+}
+
+
 .form-error{
     font-size: var(--font-size-small);
     color: var(--color-red);
@@ -155,12 +137,6 @@
 }
 .add-row, .add-row-last, .add-row-span{
     width: 100%;
-    /* display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-start;
-    flex-wrap: wrap;
-    position: relative; */
     
 }
 .add-row label, .add-row-span  label{
@@ -199,22 +175,44 @@
 .add-row.validation input, .add-row.validation input:focus, .add-row-last.validation input:focus, .add-row-span.validation input:focus{
     border: 2px solid var(--color-red) !important;
 }
+/** css for view map **/
+.route-div{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 15px 0;
+    position: relative; 
+    width: 100%;
+    clear: both;
+}
+.view-map{
+    height: 450px;
+    width: 90%;
+    display: block;
+}
+/** css for log sheet */
 .log-sheet-div{
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     padding-bottom: 70px;
-    position: absolute; 
-    top: 1350px;
+   /*  position: absolute; 
+    top: 1350px; */
     width: 100%;
 }
 .log-sheet{
-    padding: 50px;
-    height: 300px;
+    padding: 0 50px;
+    font-size: var(--font-size-medium);
+    font-weight: var(--font-weight-bold);
+}
+.log-sheet-title{
+    font-size: var(--font-size-medium);
+    text-align: left;
 }
 .carousel-buttons{
-    padding: 10px;
+    padding: 50px 10px;
 }
 .prevNext{
     margin-right: 4px;
@@ -252,6 +250,9 @@
     .add-row label, .add-row-span label{
         text-align: left;
     }
+    .carousel-buttons{
+        padding: 15px 10px;
+    }
 }
 /** for medium mobile ***/
 @media (max-width: 468px) {
@@ -262,14 +263,17 @@
     }
     .prompts-title{
         font-size: var(--font-size-medium);
-        width: 80%;
+        width: 96%;
     }
+    .promts-body{
+        width: 94%;
+     }
     .prompts-module .col-1-2{
         margin: 0;
         padding: 0;
     }
     .prompts-footer button {
-        width: 60px;
+        width: 140px;
     }  
     .page-body{
         flex-direction: column;
@@ -283,6 +287,9 @@
     .add-row label, .add-row-span label{
         text-align: left;
     }  
+    .carousel-buttons{
+        padding: 10px 10px;
+    }
 }
 /** for tablet and small labtops ***/
 @media (min-width: 768px) and (max-width: 1147px) {

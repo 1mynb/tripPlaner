@@ -5,11 +5,13 @@ import PickLocations from "./pickLocations";
 import Select from "react-select";
 
 function Prompts ({ setTripId, mapMasterErrors }){
+    // use state variable for locations
     const [locations, setLocations] = useState({
         current: { address: "", lat: null, lon: null },
         pickup: { address: "", lat: null, lon: null },
         dropoff: { address: "", lat: null, lon: null },
     });
+    //use state variable for current cycle use
     const [current_cycle_used, setCurrentCycleUsed] = useState()
     
     const [modalOpen, setModalOpen] = useState(null); // Track which field opened the map
@@ -19,7 +21,15 @@ function Prompts ({ setTripId, mapMasterErrors }){
     const [searchResultsDropOff, setSearchResultsDropOff] = useState([]);
     //const [searchInput, setSearchInput] = useState("");
 
-
+    /**
+     *method: handlePromptsChange
+     description: method to set the values of location on field change
+     args:
+        field: which field is changed
+        location: the location value
+     Returns:
+        nothing
+     */
     const handlePromptsChange = (field, location) => {
         setLocations(prevLocations => ({
             ...prevLocations,
@@ -30,23 +40,24 @@ function Prompts ({ setTripId, mapMasterErrors }){
             }
         }));
         
-        // const options = {
-        //     label: location.address,
-        //     value: { lat: location.lat, lon: location.lon },
-        //   };
-        // setSearchResults(options)
 
         setModalOpen(null); // Close the modal
     };
 
+    //on change handler for cycle use
     const handleCycleUsed = (e) =>{
         setCurrentCycleUsed(e.target.value)
     }
 
-  
-
      
-    //method to validate the input feilds
+     /**
+     *method: validateForm
+     description: method to validate the prompts before saving
+     args:
+        masterData: the fields inserted by the user
+     Returns:
+        true if it is valide false otherwise
+     */
     const validateForm = async (masterData) =>{
         try{
             await PromptsSchema.validate(masterData, {abortEarly: false})
@@ -62,6 +73,14 @@ function Prompts ({ setTripId, mapMasterErrors }){
             return false;
         }
     }
+     /**
+     *method: handleSubmit
+     description: method to save the inputs
+     args:
+        e: the event
+     Returns:
+        nothing
+    */
     const handleSubmit = async (e) => {
         e.preventDefault();
         const masterData = {
@@ -98,6 +117,14 @@ function Prompts ({ setTripId, mapMasterErrors }){
        
     };
 
+    /**
+     *method: handleSearchCurrent
+     description: method to handle for current location search
+     args:
+        newVal: the input characters
+     Returns:
+        nothing
+    */
     const handleSearchCurrent = async (newVal, actionMeta) => {
         if (actionMeta.action !== "input-change") return; // Ensure it's a valid input change event
         if (typeof newVal !== "string") {
@@ -132,6 +159,14 @@ function Prompts ({ setTripId, mapMasterErrors }){
         setSearchResultsCurrent(options);
     };
 
+    /**
+     *method: handleSearchPickup
+     description: method to handle for pickup location search
+     args:
+        newVal: the input characters
+     Returns:
+        nothing
+    */
     const handleSearchPickup = async (newVal, actionMeta) => {
         if (actionMeta.action !== "input-change") return; // Ensure it's a valid input change event
         if (typeof newVal !== "string") {
@@ -166,6 +201,14 @@ function Prompts ({ setTripId, mapMasterErrors }){
         setSearchResultsPickup(options);
     };
 
+    /**
+     *method: handleSearchDropOff
+     description: method to handle for dropoff location search
+     args:
+        newVal: the input characters
+     Returns:
+        nothing
+    */
     const handleSearchDropOff = async (newVal, actionMeta) => {
         if (actionMeta.action !== "input-change") return; // Ensure it's a valid input change event
         if (typeof newVal !== "string") {
@@ -199,7 +242,15 @@ function Prompts ({ setTripId, mapMasterErrors }){
     };
 
 
-    // Handle selecting from the search bar
+    /**
+     *method: handleSelectSearch
+     description: method to handle for the input coming from search bar
+     args:
+        selectedOption: the selected option
+        locType: the field type
+     Returns:
+        nothing
+    */
     const handleSelectSearch = (selectedOption, locType) => {
        // console.log(selectedOption)
        // console.log(locType)
@@ -211,6 +262,15 @@ function Prompts ({ setTripId, mapMasterErrors }){
         
     };
 
+     /**
+     *method: debounce
+     description: method to debounce if there are multiple input change
+     args:
+        func: the given function
+        delay: the delay duration
+     Returns:
+        nothing
+    */
     const debounce = (func, delay) => {
         let timeout;
         return (...args) => {

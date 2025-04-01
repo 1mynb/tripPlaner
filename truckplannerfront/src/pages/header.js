@@ -1,10 +1,11 @@
 import React, { useState } from 'react'
 import { NavLink } from 'react-router-dom'
-import tripPlannerLogo from '../Assets/images/tripPlanner.png'
+import tripPlannerLogo from '../Assets/images/tripPlannerOpt2.png'
 
 function Header(){
     const [smallMob, setSmallMob] = useState(false)
 
+    //method to set detect screen size
     const handleSmallMob = () =>{
         setSmallMob(!smallMob)
     }

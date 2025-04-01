@@ -2,6 +2,7 @@ from django.db import models
 
 # Create your models here.
 class Trips(models.Model):
+    # database fields 
     current_location = models.CharField(max_length=255)
     pickup_location = models.CharField(max_length=255)
     dropoff_location = models.CharField(max_length=255)

@@ -2,10 +2,10 @@ import React, { useEffect, useState } from "react";
 import L from "leaflet";
 import { MapContainer, TileLayer, Polyline, Marker, Popup } from "react-leaflet";
 import getTrips from "../services/promptsService";
-//import polyline from '@mapbox/polyline'; 
 import MapCenter from "./mapCenter";
 
 function ViewMap({tripId, setMapMasterErrors, setLogSheet}) {
+    //use state constants
     const [route, setRoute] = useState([]);
     const [fuelStops, setFuelStops] = useState([]);
     const [breakStops, setBreakStops] = useState([]);
@@ -77,7 +77,7 @@ function ViewMap({tripId, setMapMasterErrors, setLogSheet}) {
     
 
     return(
-        <div className="route-div">
+        <div className="route-div" style={{ marginBottom: '20px' }}>
             {
                 mapDisplay && 
                 <>

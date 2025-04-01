@@ -1,31 +1,32 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Stage, Layer, Line, Text } from "react-konva";
 
 // Define FMCSA-style log positions
 const STATUS_MAP = {
-"Off Duty": 20,       // Off Duty position
-"Rest": 20,           // Same as Off Duty
-"Break": 20,          // Same as Off Duty
-"Sleeper Berth": 70,  // Separate position for Sleeper Berth
-"Driving": 120,       // Driving position
-"Fueling": 170,          // Same as On Duty
-"On Duty": 170        // On Duty position
+"Off Duty": 40,       // Off Duty position
+"Rest": 40,           // Same as Off Duty
+"Break": 40,          // Same as Off Duty
+"Sleeper Berth": 90,  // Separate position for Sleeper Berth
+"Driving": 140,       // Driving position
+"Fueling": 190,          // Same as On Duty
+"On Duty": 140        // On Duty position
 };
 
 // Visible status to be seen on log sheet
 const VISIBLE_STATUS = {
-    "Off Duty": 20,      
-    "Sleeper Berth": 70,  
-    "Driving": 120,       
-    "On Duty": 170        
+    "Off Duty": 40,      
+    "Sleeper Berth": 90,  
+    "Driving": 140,       
+    "On Duty": 190        
 };
 
 //constants for graphs
 const HOURS_PER_DAY = 24;
-const GRAPH_WIDTH = 600;
-const GRAPH_HEIGHT = 200;
+const GRAPH_WIDTH = 570;
+//const GRAPH_HEIGHT = 220;
 const HOUR_WIDTH = GRAPH_WIDTH / HOURS_PER_DAY;
 const LEFT_PADDING = 80; // Space for labels
+const LABEL_WIDTH = 80
 
 
 /*
@@ -234,13 +235,53 @@ function LogSheet({ logSheet }) {
     const currentDate = logSheetDates[currentIndex]; // Get the current date key
     const currentLogLines = dailyLogLines[currentDate];
 
+    
+
+    const getGraphSize = () => {
+        const screenWidth = window.innerWidth;
+        let width, height;
+
+        if (screenWidth < 480) { // Extra small screens (phones)
+            height = 130;
+            width = screenWidth - 120; 
+        
+          } else if (screenWidth < 768) {
+            height = 210;
+            width = screenWidth * 0.55; // Small screens (tablets)
+          } else if (screenWidth < 1024) {
+            height = 220;
+            width = screenWidth * 0.6; // Medium screens (laptops) → Adjust dynamically
+          } else if (screenWidth < 1128) {
+            height = 240;
+            width = screenWidth * 0.6; // Large screens (desktops)
+          } else{
+            height = 300;
+            width = screenWidth * 0.4; // Large screens (desktops)
+          }
+
+          return {width, height}
+    };
+      
+    const [graphSize, setGraphSize] = useState(getGraphSize());
+
+    useEffect(() => {
+        const handleResize = () => {
+          setGraphSize(getGraphSize()); // Update width on resize
+        };
+      
+        window.addEventListener("resize", handleResize);
+        return () => window.removeEventListener("resize", handleResize);
+      }, [graphSize]);
+
+      console.log('screen width:', window.innerWidth)
+      console.log('graph width:', graphSize)
     return (
         <div className="log-sheet-div">
             <p className="prompts-title">Your Log Sheet Detail</p>
             <div className="log-sheet">
-                <h3>Log Sheet for {currentDate}</h3>
-                <Stage width={GRAPH_WIDTH + LEFT_PADDING} height={GRAPH_HEIGHT}>
-                    <Layer>
+                <p className="log-sheet-title">Log Sheet for {currentDate}</p>
+                <Stage width={graphSize.width + LEFT_PADDING} height={graphSize.height}>
+                    <Layer scaleX={graphSize.width / GRAPH_WIDTH} scaleY={graphSize.width / GRAPH_WIDTH}>
                         {/* Horizontal Lines (Red) for Statuses */}
                         {Object.values(STATUS_MAP).map((y, index) => (
                             <Line key={index} points={[LEFT_PADDING, y, GRAPH_WIDTH + LEFT_PADDING, y]} stroke="red" strokeWidth={1} />
@@ -248,12 +289,12 @@ function LogSheet({ logSheet }) {
 
                         {/* Vertical Hour Markers (Black) */}
                         {Array.from({ length: HOURS_PER_DAY + 1 }).map((_, i) => (
-                            <Line key={i} points={[i * HOUR_WIDTH + LEFT_PADDING, 0, i * HOUR_WIDTH + LEFT_PADDING, GRAPH_HEIGHT]} stroke="black" strokeWidth={1} />
+                            <Line key={i} points={[i * HOUR_WIDTH + LEFT_PADDING, 0, i * HOUR_WIDTH + LEFT_PADDING, GRAPH_WIDTH]} stroke="black" strokeWidth={1} />
                         ))}
 
                         {/* Status Labels on the Left */}
                         {Object.entries(VISIBLE_STATUS).map(([status, y]) => (
-                            <Text key={status} x={5} y={y - 10} text={status} fontSize={12} fill="black" />
+                            <Text key={status} x={5} y={y - 10} text={status} fontSize={14} fontStyle="bold" width={LABEL_WIDTH} align="left" font fill="black" />
                         ))}
 
                         {/* Log Line Graph (Blue) */}
@@ -264,7 +305,7 @@ function LogSheet({ logSheet }) {
                         {/* Time Labels (Top and Bottom) */}
                         {Array.from({ length: HOURS_PER_DAY }).map((_, i) => (
                             <>
-                                <Text key={`top-${i}`} x={i * HOUR_WIDTH + LEFT_PADDING} y={2} text={`${i}`} fontSize={10} fill="black" />
+                                <Text key={`top-${i}`} x={i * HOUR_WIDTH + LEFT_PADDING} y={0} text={`${i}`} fontSize={12} fill="black" fontStyle="bold" />
                             </>
                         ))}
                     </Layer>

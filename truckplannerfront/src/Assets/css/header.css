@@ -60,14 +60,7 @@
     cursor: pointer;
     color: var(--color-primary);
 }
-/* .header-common-left .link.active{
-    background-color: var(--color-primary) !important;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 60px;
-    height: 60px;
-} */
+
 
 .header-common-social{
     padding-left: 1rem;
@@ -110,84 +103,6 @@
 .nav-hor-space:hover, .nav-no-space:hover{
     cursor: pointer;
     color: var(--color-primary);
-}
-
-
-
-/** -------------------------------------for the triangle ----------------------**/
-
-.triangle{
-    position: relative;
-    height: 40rem;
-    background-image:  linear-gradient(to bottom, var(--color-dark-grey), var(--color-light-grey), var(--color-white-light), var(--color-white-light2));
-}
-.header-shape-divider {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    overflow: hidden;
-    line-height: 0;
-}
-
-.header-shape-divider svg {
-    position: relative;
-    display: block;
-    width: calc(100% + 1.3px);
-    height: 548px;
-}
-
-.header-shape-divider .shape-fill {
-   fill: #FFFFFF; 
-
-}
-
-/** -----------header search-------------------------- **/
-.cup-search{
-    position: absolute;
-    left: calc((var(--container-width) / 2) - 647px);
-    z-index: 99;
-    margin-top: -36rem;
-    width: 100%;
-   /* height: 100%; */
-}
-.header-search{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 3rem 3rem 0 3rem;
-    position: relative;
-
-}
-.inputSearch{
-    width: 500px;
-    height: 50px;
-    border: 1px solid var(--color-black);
-    border-radius: 5px;
-    font-size: var(--font-size-medium);
-
-}
-.btnSearch{
-    height: 50px;
-    width: 50px;
-    border: none;
-    background: none;
-    margin-left: -4rem;
-}
-.btnSearch:hover{
-    cursor: pointer;
-    color: var(--color-primary);
-}
-.cup{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 3rem;  
-}
-.cup-img{
-    width: 120px;
-    /*height: 260px;*/
-    height: 214px;
 }
 
 
@@ -300,80 +215,6 @@
 .my-nav-title{
     display: flex;
     justify-content: space-between;
-}
-
-/** header upcoming **/
-.header-upcoming{
-    width: 25%;
-    height: 3.5rem;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 6rem;
-    background-color: var(--color-dark-grey);
-    color: var(--color-white);
-    text-align: center;
-    border-top-left-radius: 50px;
-    border-top-right-radius: 50px;
-    font-style: oblique;
-    
-}
-
-.header-upcoming h1{
-    padding: 2px 0;
-}
-
-/** header-preview **/
-.header-preview{
-    height: 15%;
-    width: 65%;
-    border: 1px solid var(--color-dark-grey);
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 0rem;
-    margin-bottom: 6rem;
-    border-radius: 90px;
-    box-shadow: 15px 15px 5px rgba(31, 26, 26, 0.2);
-    background-color: var(--color-blue-light);
-}
-
-.header-preview-title, .header-preview-footer{
-    text-align: center;
-    font-size: var(--font-size-large);
-}
-.header-preview-footer{
-    margin-top: -4rem;
-}
-
-.header-preview-body{
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    height: 15rem;
-    margin-top: -4rem;
-    
-}
-.header-preview-body .home,.header-preview-body .away{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-start;
-    width: 40%;
-    height: 40%;
-}
-.home-text, .away-text{
-    font-size: var(--font-size-medium);
-    font-weight: var(--font-weight-bold);
-    
-}
-.logoFxr{
-    max-width: 50%;
-    height: 50%;
-}
-.vs{
-    font-style: italic;
-    font-size: var(--font-size-large);
-    font-style: oblique;
-    text-align: center;
 }
 
 

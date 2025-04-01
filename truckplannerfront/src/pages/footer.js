@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import tripPlannerLogo from '../Assets/images/tripPlanner.png'
+import tripPlannerLogo from '../Assets/images/tripPlannerOpt2.png'
 function Footer (){
     return (
         <div className="my-container">
