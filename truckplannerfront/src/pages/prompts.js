@@ -60,6 +60,7 @@ function Prompts ({ setTripId, mapMasterErrors }){
      */
     const validateForm = async (masterData) =>{
         try{
+            //console.log('master data:', masterData)
             await PromptsSchema.validate(masterData, {abortEarly: false})
             setMasterErrors({})
             return true
@@ -73,6 +74,7 @@ function Prompts ({ setTripId, mapMasterErrors }){
             return false;
         }
     }
+   
      /**
      *method: handleSubmit
      description: method to save the inputs
@@ -83,6 +85,8 @@ function Prompts ({ setTripId, mapMasterErrors }){
     */
     const handleSubmit = async (e) => {
         e.preventDefault();
+        setMasterErrors({});
+        setTripId(null)
         const masterData = {
             current_location: locations.current.address,
             current_location_latitude: locations.current.lat,
@@ -95,18 +99,20 @@ function Prompts ({ setTripId, mapMasterErrors }){
             dropoff_location: locations.dropoff.address,
             dropoff_location_latitude: locations.dropoff.lat,
             dropoff_location_longitude: locations.dropoff.lon,
-            current_cycle_used
+            current_cycle_used:parseFloat(current_cycle_used)
         }
        // console.log('master data:', masterData)
 
         const isValid = await validateForm(masterData)
         if(isValid){
             try {
-                const res = await addTrips(masterData)
-                if(!res.ok){
-                    setMasterErrors({...masterErrors, 'error': res.error})
+                const {status, result} = await addTrips(masterData)
+                if (status === 201){
+                    setTripId(result.trip_id);
+                } else{
+                    setMasterErrors({...masterErrors, 'error': result.error})
                 }
-                setTripId(res.trip_id);
+               
 
             } catch (error) {
                 console.error("Error creating trip:", error);
@@ -283,7 +289,7 @@ function Prompts ({ setTripId, mapMasterErrors }){
     const debouncedSearchPickup = debounce((value,actionMeta)=>{handleSearchPickup(value, actionMeta)}, 500);
     const debouncedSearchDropoff = debounce((value,actionMeta)=>{handleSearchDropOff(value, actionMeta)}, 500);
 
-    //console.log('search input:', searchInput)
+    //console.log('master errors:', masterErrors)
 
     return (
             <div className="page-content">

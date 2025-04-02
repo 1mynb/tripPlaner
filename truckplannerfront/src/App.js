@@ -24,7 +24,7 @@ function App() {
       {tripId && <ViewMap tripId={tripId} setMapMasterErrors={setMapMasterErrors} setLogSheet={setLogSheet} />}
 
       {
-        logSheet && logSheet.length > 0 && <LogSheet logSheet={logSheet} /> 
+       tripId && logSheet && logSheet.length > 0 && <LogSheet logSheet={logSheet} /> 
       } 
 
      <Footer />

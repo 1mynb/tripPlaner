@@ -34,16 +34,18 @@ SECRET_KEY = env('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = env('DEBUG')
 
+
 ALLOWED_HOSTS = [
-    'http://localhost:3000',
-    'http://localhost:8000',
-    'localhost'
+    'tripplanner.zeaye.com',
+    'tripplanerback.zeaye.com'
 ]
 
 CORS_ALLOWED_ORIGINS=[
-    'http://localhost:3000',
-    'http://localhost:8000'
+    'https://tripplanner.zeaye.com',
+    'https://tripplanerback.zeaye.com'
 ]
+
+
 
 
 # Application definition

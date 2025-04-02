@@ -227,7 +227,7 @@ const processMultiDayLogSheet = (logSheet) =>{
 }
 
 function LogSheet({ logSheet }) {
-    console.log('log sheet:', logSheet)
+    //console.log('log sheet:', logSheet)
     const dailyLogLines = processMultiDayLogSheet(logSheet);
     const logSheetDates = Object.keys(dailyLogLines); // Get all log sheet dates
     const [currentIndex, setCurrentIndex] = useState(0);
@@ -273,8 +273,8 @@ function LogSheet({ logSheet }) {
         return () => window.removeEventListener("resize", handleResize);
       }, [graphSize]);
 
-      console.log('screen width:', window.innerWidth)
-      console.log('graph width:', graphSize)
+      //console.log('screen width:', window.innerWidth)
+      //console.log('graph width:', graphSize)
     return (
         <div className="log-sheet-div">
             <p className="prompts-title">Your Log Sheet Detail</p>

@@ -36,5 +36,17 @@ export  function addTrips(tp){
         dropoff_location_longitude: tp.dropoff_location_longitude,
     
     })
-    .then(response => response.data)
+    .then(response => {
+        return {
+            status: response.status,
+            result: response.data,
+        };
+    })
+    .catch(err => {
+        console.log('error in service:',err.response.data)
+         return {
+             status: err.status,
+             result: err.response.data,
+         }; 
+     })
 }

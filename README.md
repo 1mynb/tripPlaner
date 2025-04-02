@@ -35,6 +35,8 @@ This project is developed to help drivers plan their trip. They provide their cu
    * The system calulates the off duty, on duty, driving, sleeper birth hours
    * The system then draws the daily log sheet of the trip
 
+    <video src="https://github.com/1mynb/tripPlaner/blob/main/overviewOpt.mp4" controls>Watch the Video</video>
+
 ---
 
 ## Usage
@@ -43,6 +45,8 @@ This project is developed to help drivers plan their trip. They provide their cu
    * fill the necessary fields, current, pickup & dropoff locations, currency cycle hours used 
    * Then click Plan Trip button to see the out puts
    * The system then displays the output
+
+
    
 ---
 
