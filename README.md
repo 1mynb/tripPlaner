@@ -35,7 +35,7 @@ This project is developed to help drivers plan their trip. They provide their cu
    * The system calulates the off duty, on duty, driving, sleeper birth hours
    * The system then draws the daily log sheet of the trip
 
-   [Watch the demo video](https://github.com/BeniyamL/tripPlaner/blob/main/overviewOpt.mp4)
+   [Watch the demo video](https://github.com/BeniyamL/tripPlaner/raw/main/overviewOpt.mp4)
 
 
 ---
